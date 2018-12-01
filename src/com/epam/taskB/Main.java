@@ -13,8 +13,9 @@ public class Main {
         String str = "The article is devoted to the development of information-measuring " +
                 "equipment for laboratory sailing wind power plants, as well as economic and" +
                 " environmental costs and environmental hazards. This article a new wind turbine " +
-                "system based on manipulators instead of traditional wind turbines is explored.";
+                "system based on manipulators instead akbol of traditional wind turbines is explored.";
         Word.sortBySymbolInWord(str,'f');
+        Word.getWord(str);
 
 
     }
