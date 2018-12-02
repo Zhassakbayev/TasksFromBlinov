@@ -1,4 +1,4 @@
-package Farm;
+package com.epam.taskB.taskA;
 
 import com.sun.javafx.geom.transform.SingularMatrixException;
 import com.sun.xml.internal.fastinfoset.util.CharArray;
