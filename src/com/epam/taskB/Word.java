@@ -3,28 +3,40 @@ package com.epam.taskB;
 import java.util.*;
 
 public class Word {
-    private static String[] changedText;
-    private static List<String> word = new ArrayList<>();
+    private String text;
+    private List<Word> words = new ArrayList<>();
 
-    public static List<String> getWord(String text) {
-        changedText = text.trim().split("( +)|(\\.+ )|(!+ )|(\\?+ )");
-        for (String tempWord : changedText) {
-            word.add(tempWord);
-        }
-        return word;
+    public Word(String text) {
+        this.text = text;
     }
 
-    public static void sortBySymbolInWord(String text, char symbol) {
-        Collections.sort(getWord(text), new WordComparator(symbol));
+    public String getText() {
+        return text;
     }
 
-    private static int count(String word, char symbol) {
-        int numberSymbol = 0;
-        for (int i = 0; i < word.length(); i++) {
-            if (word.charAt(i) == symbol) {
-                numberSymbol++;
-            }
+    public List<Word> getWords() {
+        return words;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public List<Word> parseToWords(){
+        String[] text= getText().split("\\s+");
+        for (String currentWord : text){
+            Word word  =new Word(currentWord);
+            words.add(word);
         }
-        return numberSymbol;
+        return words;
+    }
+
+    public void sortBySymbolInWord(char symbol) {
+      Collections.sort(parseToWords(), new WordComparator(symbol));
+    }
+
+    @Override
+    public String toString() {
+        return  text + ",";
     }
 }
